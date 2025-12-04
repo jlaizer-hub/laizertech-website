@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LaizerTech Support | Tech Problems Vanish. LaizerTech Delivers.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f4c430;
+      --gold-deep: #b8941f;
+      --gold-soft: #fff5cc;
+      --black: #000000;
+      --dark: #111111;
+      --cream: #fff9e6;
+      --white: #ffffff;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --radius-lg: 18px;
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0.5rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-wrap img {
+      height: 70px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .logo-wrap img {
+        height: 60px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        background: var(--cream);
+        padding: 0.8rem 1.25rem 1.2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-cta {
+        width: 100%;
+      }
+
+      .nav-cta .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(
+        circle at top left,
+        rgba(212, 175, 55, 0.2),
+        transparent 55%
+      );
+      padding-top: 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: var(--gold-deep);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.2vw + 1rem, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 0.9rem 1.1rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      font-size: 0.9rem;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .hero-floating-card.small {
+      right: 10%;
+      top: 8%;
+    }
+
+    .hero-floating-card.large {
+      left: 8%;
+      bottom: 7%;
+    }
+
+    .hero-floating-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-floating-title {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-floating-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, #ffffff, var(--cream));
+      border-radius: 22px;
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.16);
+      border-color: rgba(212, 175, 55, 0.75);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, var(--gold-light), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      font-size: 1.3rem;
+    }
+
+    .service-title {
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .service-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .service-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-deep);
+    }
+
+    @media (max-width: 960px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Why Choose */
+    .why {
+      background: radial-gradient(
+          circle at top left,
+          rgba(212, 175, 55, 0.2),
+          transparent 60%
+        ),
+        var(--dark);
+      color: var(--white);
+    }
+
+    .why .section-subtitle {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .why-image-wrap {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .why-image-wrap img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .why-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 0.75rem;
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem 1rem;
+      align-items: flex-start;
+    }
+
+    .why-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      font-size: 1.1rem;
+    }
+
+    .why-item-title {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .why-item-desc {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .why-feature-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .why-feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-feature-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .why-feature-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* How It Works */
+    .steps-section {
+      background: var(--white);
+    }
+
+    .steps-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .steps-header .section-subtitle {
+      margin: 0 auto 2rem;
+    }
+
+    .steps-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding-top: 1.5rem;
+    }
+
+    .steps-line {
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      z-index: 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-circle {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 0.9rem;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at top left,
+        var(--gold-light),
+        var(--gold)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+      position: relative;
+      color: var(--black);
+      font-size: 1.6rem;
+    }
+
+    .step-number-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .steps-cta-box {
+      max-width: 840px;
+      margin: 2.25rem auto 0;
+      background: linear-gradient(135deg, #fffdf5, var(--cream));
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      padding: 1.6rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .steps-cta-text {
+      max-width: 460px;
+    }
+
+    .steps-cta-text h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .steps-cta-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .steps-line {
+        left: 5%;
+        right: 5%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-line {
+        display: none;
+      }
+    }
+
+    /* Final CTA strip */
+    .final-cta-strip {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      padding: 3rem 0;
+    }
+
+    .final-cta-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--black);
+    }
+
+    .final-cta-inner h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .final-cta-inner p {
+      font-size: 1rem;
+      max-width: 620px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .final-cta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    .final-cta-tags span {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Contact-ish info section (simple) */
+    .contact-box {
+      max-width: 840px;
+      margin: 3rem auto 0;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      padding: 1.9rem 1.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .contact-details-list {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-details-list li + li {
+      margin-top: 0.4rem;
+    }
+
+    .contact-details-list span {
+      font-weight: 600;
+    }
+
+    .contact-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      font: inherit;
+      resize: vertical;
+    }
+
+    .contact-form textarea {
+      min-height: 90px;
+    }
+
+    @media (max-width: 840px) {
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 2.8rem 0 2.1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-logo img {
+      height: 70px;
+      width: auto;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.55rem;
+    }
+
+    .footer-links,
+    .footer-contact {
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .footer-links li + li,
+    .footer-contact li + li {
+      margin-top: 0.35rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.65);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 980px) {
+      .footer-inner {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#top" class="logo-wrap">
+        <!-- TODO: replace with your real logo path -->
+        <img src="images/laizertech-logo.png" alt="LaizerTech Support logo" />
+        <div class="logo-text">
+          <h1>LaizerTech Support</h1>
+          <span>Tech Problems Vanish. LaizerTech Delivers.</span>
+        </div>
+      </a>
+
+      <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#why">Why LaizerTech</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#contact">Contact</a>
+          <span class="nav-cta">
+            <a href="#contact" class="btn btn-primary">Book Your Tech Expert</a>
+          </span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero section">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-kicker">Professional Tech Support Services</div>
+          <h2 class="hero-title">
+            Tech Issues Disappear.<br />LaizerTech Gets You Back on Track.
+          </h2>
+          <p class="hero-subtitle">
+            From WiFi glitches to full device setups, LaizerTech Support
+            makes your technology work for you. Fast, friendly, and reliable
+            help for your home or small business.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Help Today</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+
+          <div class="hero-trust">
+            <span><span class="hero-dot"></span> Professional support</span>
+            <span><span class="hero-dot"></span> Same-day help when available</span>
+            <span><span class="hero-dot"></span> Home & small business friendly</span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-image-wrap">
+            <!-- TODO: replace with a real support-style image -->
+            <img src="images/hero-support.jpg" alt="IT support in action" />
+            <div class="hero-floating-card small">
+              <div class="hero-floating-title">
+                <span class="hero-floating-icon">⚡</span>
+                Fast Response
+              </div>
+              <div class="hero-floating-label">
+                Help when you actually need it.
+              </div>
+            </div>
+            <div class="hero-floating-card large">
+              <div class="hero-floating-title">
+                <span class="hero-floating-icon">🎧</span>
+                Expert Guidance
+              </div>
+              <div class="hero-floating-label">
+                Clear, patient explanations every step of the way.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Complete IT Support for Everyday Life</h2>
+        <p class="section-subtitle">
+          Whether you’re working from home, running a small business, or just
+          want your devices to behave, LaizerTech offers practical, real-world
+          tech support tailored to you.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">💻</div>
+            <h3 class="service-title">Device Setup &amp; Support</h3>
+            <p class="service-desc">
+              Computers, tablets, phones, and printers — we’ll get everything
+              connected, configured, and ready to use so you don’t have to
+              wrestle with it.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">📶</div>
+            <h3 class="service-title">Network &amp; Wi-Fi Optimization</h3>
+            <p class="service-desc">
+              Slow internet or dead zones? We fine-tune your routers, mesh
+              systems, and modems so your Wi-Fi feels fast and consistent
+              where you actually use it.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3 class="service-title">Smart Home Integration</h3>
+            <p class="service-desc">
+              Make your home smarter and simpler. We set up cameras, smart
+              TVs, speakers, and other devices so they all work together the
+              way they should.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3 class="service-title">Business IT Solutions</h3>
+            <p class="service-desc">
+              Keep your business running smoothly with dependable IT
+              guidance, setup, and ongoing support — so you can focus on
+              serving your clients, not fixing tech.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">☁️</div>
+            <h3 class="service-title">Software &amp; Cloud Support</h3>
+            <p class="service-desc">
+              Help with Microsoft 365, Google Workspace, backups, email, and
+              everyday apps. We get your tools organized and secure so work
+              feels easier.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3 class="service-title">Troubleshooting &amp; Repairs</h3>
+            <p class="service-desc">
+              Something not working right? We track down the cause and walk
+              you through the best fix, from quick tune-ups to repair or
+              replacement options.
+            </p>
+            <a href="#contact" class="service-link">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section id="why" class="section why">
+      <div class="container why-grid">
+        <div class="why-image-wrap">
+          <!-- TODO: replace with a real data center / support image -->
+          <img src="images/why-support.jpg" alt="LaizerTech IT support" />
+        </div>
+
+        <div>
+          <h2 class="section-title">Why Choose LaizerTech Support?</h2>
+          <p class="section-subtitle">
+            You’re not just another support ticket — you’re a person who
+            deserves tech help that’s clear, honest, and actually helpful.
+          </p>
+
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-icon">⚡</div>
+              <div>
+                <div class="why-item-title">Quick, Responsive Help</div>
+                <div class="why-item-desc">
+                  Short wait times and same-day options when possible. We know
+                  tech problems can’t just sit for days.
+                </div>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">😊</div>
+              <div>
+                <div class="why-item-title">Friendly &amp; Trustworthy</div>
+                <div class="why-item-desc">
+                  No confusing jargon and no pressure. Just straightforward,
+                  respectful guidance you can rely on.
+                </div>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">🎓</div>
+              <div>
+                <div class="why-item-title">Experienced Support</div>
+                <div class="why-item-desc">
+                  Years of hands-on experience with major platforms, devices,
+                  and systems — if it plugs in or connects, we’ve probably
+                  worked with it.
+                </div>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">✔️</div>
+              <div>
+                <div class="why-item-title">Work Done With Care</div>
+                <div class="why-item-desc">
+                  Every visit and session is handled with attention to detail.
+                  If something isn’t right, we’ll work with you to make it
+                  right.
+                </div>
+              </div>
+            </div>
+
+            <div class="why-item">
+              <div class="why-icon">👥</div>
+              <div>
+                <div class="why-item-title">Support for All Comfort Levels</div>
+                <div class="why-item-desc">
+                  From tech-savvy professionals to people who “just want it to
+                  work,” we help adults of all experience levels feel more
+                  confident with technology.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-feature-row">
+            <div class="why-feature">Prompt response times</div>
+            <div class="why-feature">Secure, privacy-minded service</div>
+            <div class="why-feature">Quality-focused workmanship</div>
+            <div class="why-feature">Local &amp; remote support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / Getting Help Is Simple -->
+    <section id="how-it-works" class="section steps-section">
+      <div class="container">
+        <div class="steps-header">
+          <h2 class="section-title">Getting Help Is Simple</h2>
+          <p class="section-subtitle">
+            From first message to fixed problem, LaizerTech keeps the process
+            straightforward and stress-free.
+          </p>
+        </div>
+
+        <div class="steps-timeline">
+          <div class="steps-line"></div>
+
+          <div class="steps-grid">
+            <div class="step">
+              <div class="step-circle">
+                ☎️
+                <div class="step-number-badge">1</div>
+              </div>
+              <div class="step-title">Reach Out</div>
+              <div class="step-desc">
+                Call, email, or use the contact form to tell us what’s going
+                on. Share as much or as little detail as you’d like — we’ll
+                ask the right questions.
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-circle">
+                📅
+                <div class="step-number-badge">2</div>
+              </div>
+              <div class="step-title">Set a Time</div>
+              <div class="step-desc">
+                We’ll find a time that fits your schedule, with remote or
+                in-person options depending on your needs and location.
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-circle">
+                ✅
+                <div class="step-number-badge">3</div>
+              </div>
+              <div class="step-title">Enjoy Working Tech Again</div>
+              <div class="step-desc">
+                We get to work, fix the issue, and walk you through what we
+                did so you feel confident moving forward.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps-cta-box">
+          <div class="steps-cta-text">
+            <h3>Ready to Fix Your Tech Issues?</h3>
+            <p>
+              Don’t let tech frustrations slow you down. Get clear, friendly
+              support from LaizerTech and get back to the things that matter.
+            </p>
+          </div>
+          <div>
+            <a href="#contact" class="btn btn-primary">Book Your Tech Expert →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Big Gold CTA -->
+    <section class="final-cta-strip">
+      <div class="container final-cta-inner">
+        <h2>Tech Headaches Don’t Stand a Chance</h2>
+        <p>
+          Whether it’s a WiFi meltdown, a new device setup, or a small
+          business upgrade, LaizerTech Support is ready to jump in. Fast,
+          reliable, and easy-to-work-with service is just a click away.
+        </p>
+
+        <div class="final-cta-buttons">
+          <a href="#contact" class="btn btn-primary">Get Started Now</a>
+          <a href="#contact" class="btn btn-outline">View Pricing</a>
+        </div>
+
+        <div class="final-cta-tags">
+          <span>Committed to quality work</span>
+          <span>Same-day help when possible</span>
+          <span>Professional, knowledgeable support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact area -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact LaizerTech Support</h2>
+        <p class="section-subtitle">
+          Share what you need help with and how you prefer to be contacted.
+          You’ll get a response as quickly as possible with next steps and
+          scheduling options.
+        </p>
+
+        <div class="contact-box">
+          <div>
+            <ul class="contact-details-list">
+              <!-- TODO: replace with real contact details -->
+              <li><span>Phone:</span> (XXX) XXX-XXXX</li>
+              <li><span>Email:</span> hello@laizertechsupport.com</li>
+              <li>
+                <span>Service area:</span> Local in-home visits where
+                available + remote support.
+              </li>
+            </ul>
+            <p class="contact-note">
+              Prefer text or a call instead of email? Just mention that when
+              you reach out.
+            </p>
+          </div>
+
+          <!-- Static form; hook this up later or replace with your provider's form -->
+          <form class="contact-form">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label for="details">What do you need help with?</label>
+              <textarea
+                id="details"
+                placeholder="Tell LaizerTech a little about your tech issue or project..."
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <!-- Same logo as header -->
+          <img src="images/laizertech-logo.png" alt="LaizerTech Support logo" />
+          <div class="footer-tagline">
+            Expert IT support for homes and small businesses. LaizerTech
+            keeps your technology organized, secure, and running smoothly
+            from day one.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why">Why LaizerTech</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Support</div>
+          <ul class="footer-links">
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#services">FAQ & Common Issues</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#top">Privacy & Policies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Get In Touch</div>
+          <ul class="footer-contact">
+            <li>Call: (XXX) XXX-XXXX</li>
+            <li>Email: hello@laizertechsupport.com</li>
+            <li>Service Area: Local &amp; remote support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> LaizerTech Support. All rights reserved.</span>
+        <span>Tech Problems Vanish. LaizerTech Delivers.</span>
+      </div>
+    </div>
+
+    <script>
+      // mobile nav toggle
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.querySelector(".nav-toggle");
+        const links = document.querySelector(".nav-links");
+        if (toggle && links) {
+          toggle.addEventListener("click", function () {
+            links.classList.toggle("open");
+          });
+        }
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+  </footer>
+</body>
+</html>
