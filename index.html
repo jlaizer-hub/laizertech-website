@@ -75,7 +75,7 @@
       border-radius: 999px;
       font-weight: 600;
       font-size: 0.95rem;
-      border: 2px solid var(--gold);
+      border: 2px solid var(--gold); /* gold outline for ALL buttons */
       cursor: pointer;
       transition:
         transform 0.15s ease,
@@ -100,6 +100,7 @@
     .btn-outline {
       background: var(--white);
       color: var(--black);
+      border-color: var(--gold);
     }
 
     .btn-outline:hover {
@@ -142,7 +143,7 @@
     }
 
     .logo-wrap img {
-      height: 70px;
+      height: 90px;
       width: auto;
     }
 
@@ -217,7 +218,7 @@
 
     @media (max-width: 768px) {
       .logo-wrap img {
-        height: 60px;
+        height: 75px;
       }
 
       .nav-toggle {
@@ -320,8 +321,8 @@
       gap: 0.3rem;
       padding: 0.35rem 0.75rem;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: #ffffff;
+      border: 2px solid var(--gold);
     }
 
     .hero-dot {
@@ -349,6 +350,8 @@
       object-fit: cover;
     }
 
+    /* kept hero-floating-card styles in case you want overlays later,
+       but we are not using them now */
     .hero-floating-card {
       position: absolute;
       background: var(--white);
@@ -362,8 +365,7 @@
     }
 
     .hero-floating-card.small {
-      right: 10%;
-      top: 8%;
+      display: none; /* hide the weird bubble */
     }
 
     .hero-floating-label {
@@ -989,15 +991,7 @@
           <div class="hero-image-wrap">
             <!-- Replace this with your own hero image later -->
             <img src="images/hero-support.jpg" alt="IT support in action" />
-            <div class="hero-floating-card small">
-              <div class="hero-floating-title">
-                <span class="hero-floating-icon">⚡</span>
-                Fast Response
-              </div>
-              <div class="hero-floating-label">
-                Help when you actually need it.
-              </div>
-            </div>
+            <!-- bubble removed via CSS (hero-floating-card.small is display:none) -->
           </div>
         </div>
       </div>
@@ -1296,7 +1290,7 @@
           <div>
             <ul class="contact-details-list">
               <li><span>Phone:</span> (XXX) XXX-XXXX</li>
-              <li><span>Email:</span> hello@laizertechsupport.com</li>
+              <li><span>Email:</span> justinlaizer@pm.me</li>
               <li>
                 <span>Service area:</span> Local in-home visits where
                 available + remote support.
@@ -1377,7 +1371,7 @@
           <div class="footer-heading">Get In Touch</div>
           <ul class="footer-contact">
             <li>Call: (XXX) XXX-XXXX</li>
-            <li>Email: hello@laizertechsupport.com</li>
+            <li>Email: justinlaizer@pm.me</li>
             <li>Service Area: Local &amp; remote support</li>
           </ul>
         </div>
@@ -1407,5 +1401,3 @@
   </footer>
 </body>
 </html>
-
-
